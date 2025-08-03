@@ -1,0 +1,20 @@
+/* -------------- global-default -------------- */
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* -------------- defaulting-input-fields -------------- */
+input,
+textarea
+{
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+    resize: none;
+}

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Task Manager</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="reset.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <script type="module" src="taskmanager.js" defer></script>
+        
+    </head>
+
+
+    <body>
+
+        <header>
+
+            <div class="flex-parent" id="options">
+                <h1>Task Manager</h1>
+                
+                <nav>
+                    <ul id="header-operations">
+                        <li><button id="add-button" type="button">Add</button></li>
+                        <li><button id="del-button" type="button">Delete</button></li>
+                        <li id="notification" class="bold"></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </header>
+
+        <main>
+
+        <div id="task-section">
+                <div class="task-card hide">
+                    <div class="task-container">
+
+
+                        <h2></h2>
+
+                        <button class="task-edit-button"
+                                type="button">edit</button>
+
+                        <ul>
+                            <li><span class="bold">Deadline: </span><span class="update-property"></span></li>
+                            <li><p></p></li>
+                            <li><span class="bold">Difficulty: </span><span class="update-property"></span></li>
+                            <li><span class="bold">Priority: </span><span class="update-property"></span></li>
+                        </ul>
+
+                    </div>   
+                </div>
+            </div>
+
+            
+        <div class="pop-up-window hide"> 
+            <div class="grid-pop-up-window">
+
+
+                <h2><input  class="input-title input-data input" 
+                            name="title"
+                            placeholder="Taskname" 
+                            type="text"></h2>
+
+                <div class="button-exit-popup-window">
+                    <div class="close-button">
+                        <div class="icon-elementA icon-element"></div>
+                        <div class="icon-elementB icon-element"></div>
+                    </div>
+                </div>
+
+                <div class="bg-exit-window"></div>
+                        
+
+                <ul class="storing-data">
+
+
+                    <li>
+                        <div class="flex-parent deadline-section">
+                            Deadline: <input    class="input-deadline input-data input"
+                                                name="deadline"
+                                                placeholder="01.01.2025" 
+                                                type="date"
+                                                min="1000-01-01" max="9999-12-31">
+                        </div>
+                    </li> 
+
+                    <li>
+                        <div class="description-section"> 
+                            <textarea class="input-description input-data input"
+                                    name="description"           
+                                    placeholder="description"></textarea>
+                        </div>
+                    </li>
+
+                    <li class="flex-parent button-options difficulty-section">
+                        Difficulty 
+                        <ul class="difficulty">
+
+                            <li><button type="button" 
+                                        class="input-data"
+                                        name="difficulty" 
+                                        value="1">1</button></li>  
+
+                            <li><button type="button" 
+                                        class="input-data"
+                                        name="difficulty" 
+                                        value="2">2</button></li>
+
+                            <li><button type="button" 
+                                        class="input-data"                                
+                                        name="difficulty" 
+                                        value="3">3</button></li>
+                                        
+                            <li><button type="button" 
+                                        class="input-data" 
+                                        name="difficulty" 
+                                        value="4">4</button></li>
+
+                            <li><button type="button" 
+                                        class="input-data" 
+                                        name="difficulty" 
+                                        value="5">5</button></li>
+                                        
+                        </ul>
+                    </li>
+
+                    <li class="flex-parent button-options priority-section">
+                        Priority
+                        <ul class="priority">
+
+                            <li><button type="button" 
+                                        class="input-data" 
+                                        name="priority" 
+                                        value="high">high</button></li>  
+
+                            <li><button type="button" 
+                                        class="input-data" 
+                                        name="priority" 
+                                        value="moderate">moderate</button></li>
+
+                            <li><button type="button" 
+                                        class="input-data" 
+                                        name="priority" 
+                                        value="low">low</button></li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+
+
+                <h3 class="notification-properties">notificatio-section</h3>
+                
+
+                <ul class="executions">
+
+                    <!-- for adding a card -->
+                    <li><button type="button" 
+                                id="add-card">Add</button></li>
+
+                    <!-- for editing a card -->
+                    <li><button type="button" 
+                                id="apply-card">Apply</button></li>
+
+                    <li><button type="button" 
+                                class="cancel-action">Cancel</button></li>
+                    
+
+
+                </ul>
+
+
+            </div>
+        </div>
+
+        </main>
+    </body>
+</html>
