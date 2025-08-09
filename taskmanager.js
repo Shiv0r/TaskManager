@@ -652,5 +652,5 @@ taskSectionEl?.addEventListener('click', function(event)
 new Sortable(document.getElementById('task-section'), 
 {
   animation: 150,
-   ghostClass: 'dragging'
+  ghostClass: 'dragging'
 });
