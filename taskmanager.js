@@ -15,13 +15,14 @@ const getAddCardButtonEl = document.getElementById('add-card');
 const getApplyCardButtonEl = document.getElementById('apply-card');
 
 
-const property = {
-                    title: 0,
-                    deadline: 1,
-                    description: 2,
-                    difficulty: 3,
-                    priority: 4,
-                 }
+const property = Object.freeze (
+                {
+                title: 0,
+                deadline: 1,
+                description: 2,
+                difficulty: 3,
+                priority: 4,
+                });
 const {title, deadline, description, difficulty, priority} = property;
 
 
