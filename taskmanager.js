@@ -66,7 +66,7 @@ function taskCardObj(id, title, deadline, description, difficulty, priority)
         get getData()
         {
             return [this.title, this.deadline, this.description, 
-                    this.difficulty, this.pr];
+                    this.difficulty, this.priority];
         },
         set setProperties(arrTaskData)
         {
