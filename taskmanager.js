@@ -22,8 +22,7 @@ const property = {
                     difficulty: 3,
                     priority: 4,
                  }
-
-
+const {title, deadline, description, difficulty, priority} = property;
 
 
 let taskCardIdArr = [];
@@ -212,7 +211,7 @@ function updateTaskCardProperties(elementCard, arrPropertiesData, strCardId, doe
     const getH2El = elementCard.querySelector('#task-section h2');
     const getDescriptionEl = elementCard.querySelector('#task-section li p')
     const getSpanOnlyData = arrPropertiesData.filter((element, index) => 
-                            index !== property.title && index !== property.description);
+                            index !== title && index !== description);
 
     elementCard.setAttribute('data-id', strCardId);
 
@@ -225,7 +224,7 @@ function updateTaskCardProperties(elementCard, arrPropertiesData, strCardId, doe
 
  
     const truncAmountTitle = 12;
-    const isTitleTooLong = arrPropertiesData[property.title].length > truncAmountTitle;
+    const isTitleTooLong = arrPropertiesData[title].length > truncAmountTitle;
 
     const isH2HTMLElement = getH2El instanceof HTMLElement;
     const isDescriptionHTMLElement = getDescriptionEl instanceof HTMLElement;
@@ -234,26 +233,26 @@ function updateTaskCardProperties(elementCard, arrPropertiesData, strCardId, doe
 
     if(isTitleTooLong && getH2El instanceof HTMLElement)
     {
-        const truncTitle = arrPropertiesData[property.title].slice(0, truncAmountTitle) + '...';
+        const truncTitle = arrPropertiesData[title].slice(0, truncAmountTitle) + '...';
         getH2El.textContent = truncTitle;
     }
     else
     {
-        getH2El.textContent = arrPropertiesData[property.title];
+        getH2El.textContent = arrPropertiesData[title];
     }
 
 
     
     const truncAmountParagraph = 125;
-    const isParagraphTooLong = arrPropertiesData[property.description].length > truncAmountParagraph;
+    const isParagraphTooLong = arrPropertiesData[description].length > truncAmountParagraph;
     if(isParagraphTooLong && getDescriptionEl instanceof HTMLElement)
     {
-        const truncParagraph = arrPropertiesData[property.description].slice(0, truncAmountParagraph) + '...';
+        const truncParagraph = arrPropertiesData[description].slice(0, truncAmountParagraph) + '...';
         getDescriptionEl.textContent = truncParagraph;
     }
     else
     {
-        getDescriptionEl.textContent = arrPropertiesData[property.description];
+        getDescriptionEl.textContent = arrPropertiesData[description];
     }
 
     getAllSpanEl.forEach((cardProperty, index) =>
@@ -273,7 +272,7 @@ operationEl?.addEventListener('click', function(event)
 {
     const target = isHTMLElement(event.target);
     if(!target) return;
-
+    
 
     //opens card creation
     const isAddButton = target.matches('#add-button');
@@ -376,6 +375,7 @@ winodwSetPropertiesEl?.addEventListener('click', function(event)
     const isAddCardButton = target.matches('#add-card');
     if(isAddCardButton)
     {
+        
         const keysOrderArr = ['title', 'deadline', 'description', 
                                 'difficulty', 'priority'];
         let getData = [];
@@ -429,9 +429,10 @@ winodwSetPropertiesEl?.addEventListener('click', function(event)
         //add card with data applied-----------------------------------------------------
         if(taskCardEl && taskSectionEl)
         {
-            getData[property.deadline] = reverseDateOrderSwitch(getData[property.deadline], '.', true);
-
-            const combinedData = numCardCreated + getData[property.deadline].split('.').join('');
+            
+            getData[deadline] = reverseDateOrderSwitch(getData[deadline], '.', true);
+            
+            const combinedData = numCardCreated + getData[deadline].split('.').join('');
             const id = combineId(combinedData);
 
             const duplicateEl = taskCardEl?.cloneNode(true);
@@ -445,9 +446,9 @@ winodwSetPropertiesEl?.addEventListener('click', function(event)
                 duplicateEl.style.display = 'block';
             }
 
-            getData[property.deadline] = reverseDateOrderSwitch(getData[property.deadline], '.', false);
-            const obj = taskCardObj(id, getData[property.title], getData[property.deadline], getData[property.description], 
-                                    getData[property.difficulty], getData[property.priority]);
+            getData[deadline] = reverseDateOrderSwitch(getData[deadline], '.', false);
+            const obj = taskCardObj(id, getData[title], getData[deadline], getData[description], 
+                                    getData[difficulty], getData[priority]);
 
             taskCardObjs.push(obj);
 
@@ -479,7 +480,7 @@ winodwSetPropertiesEl?.addEventListener('click', function(event)
 
         //updating html values of the current edit card
         const allCards = document.querySelectorAll('.task-card');
-        getData[property.deadline] = reverseDateOrderSwitch(getData[property.deadline], '.', true);
+        getData[deadline] = reverseDateOrderSwitch(getData[deadline], '.', true);
         allCards.forEach(card =>
         {
             const isCardHTMLElement = card instanceof HTMLElement;
